@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    overflow: hidden;
+    cursor: default;
+}
+.content {
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    display: inline-block;
+}
+.imgbg {
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    -webkit-animation: zoomin 20s ease-in infinite;
+    animation: zoomin 20s ease-in infinite;
+    transition: all .5s ease-in-out;
+    background-size: auto;
+    background-attachment: fixed;
+    background-repeat: repeat;
+}
+footer {
+    position: fixed;
+  margin: 0;
+  bottom: 0;
+  left: 5px;
+  font-style: italic;
+}
+#weather {
+    top: 50%;
+    text-align: center;
+    animation: visible 2s;
+}
+.weather-table {
+    vertical-align:top;
+    display: inline-block;
+    width: 20vw;
+    height: 20vw;
+    padding: 5px;
+    background-color:rgba(5, 0, 255, 0.05);
+    color: white;
+    border: 2px solid lightgray;
+    margin: 10px;
+    transition: all 0.5s;
+}
+.weather-table:hover {
+    transform: scale(1.05,1.05);
+}
+h1 {
+    font-size: 3.5vw;
+}
+.degree {
+    width: 9vw;
+    display: inline-block;
+    color: white;
+    border-radius: 2%;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+}
+.rainType {
+    background-color:rgba(0, 0, 30, 0.4);
+    display: inline-block;
+    width: 12vw;
+    font-size: 1.25vw;
+    border-radius: 2%;
+}
+.part {
+    font-size: 4vw;
+}
+.wType {
+    font-size: 2vw;
+    padding: 0.75vw;
+}
+#title {
+    font-size: 1.25vw;
+}
+#location {
+    margin-top: 15vh;
+    font-style: italic;
+}
+#managerBtn {
+    width: 5vw;
+    position: absolute;
+    bottom: 1vw;
+    right: 2vw;
+    opacity: 0.7;
+    transition: all 1s;
+    text-align: center;
+    animation: visible 2s;
+}
+#managerBtn:hover {
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+}
+#manager {
+    background-color: rgb(255,255,255,0.6);
+    visibility: hidden;
+    border: 1px solid rgb(0,0,0,0,0.2);
+    color: black;
+    opacity: 0;
+    width: 30vw;
+    height: 12.5vw;
+    position: absolute;
+    right: 10vw;
+    transition: opacity 2s;
+    text-align: center;
+}
+#manager input {
+    height: 1vw;
+    font-family: 'Titillium Web', sans-serif;
+}
+#manager input[type="text"] {
+    width: 10vw;
+}
+#manager input[type="number"] {
+    width: 5vw;
+}
+#managerTitle {
+    font-style: italic;
+    text-align: center;
+}
+#date {
+    margin-left: 0.25vw;
+    margin-top: 0.25vw;
+}
+#updateBtn {
+    background-color: rgba(8, 124, 8, 0.6);
+    color: white;
+    padding: 0.25vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    display: inline-block;
+    position: absolute;
+    left: 45%;
+    bottom: 1vw;
+    font-size: 1.25vw;
+}
+#updateBtn:hover {
+    cursor: pointer;
+}
+.pNoline {
+    display: inline;
+    left: 0.1vw;
+    position: absolute;
+}
+@-webkit-keyframes zoomin {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1);}
+  }
+  @keyframes zoomin {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1);}
+  } /*End of Zoom in Keyframes */
+  
+  /* Zoom out Keyframes */
+  @-webkit-keyframes zoomout {
+    0% {transform: scale(1);}
+    50% {transform: scale(0.67);}
+    100% {transform: scale(1);}
+  }
+  @keyframes zoomout {
+      0% {transform: scale(1);}
+    50% {transform: scale(0.67);}
+    100% {transform: scale(1);}
+  }/*End of Zoom out Keyframes */
+  @keyframes visible {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+   }

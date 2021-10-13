@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title WeatherNow 
+        style
+            include style.css
+        link(rel="icon" type="image/png" href="images/favicon.png")
+        body
+            div(class="content")
+                img(src="images/background2.png" class="imgbg")
+                header 
+                    - var d = new Date()
+                        - var j = 0
+                        - var parts = ["Morning", "Afternoon", "Evening", "Overnight"]
+                        div(id="weather")
+                            h1(id="location")= location
+                            each val, i in arr1
+                                div(class='weather-table')
+                                    h1(class="part")= parts[j] 
+                                    h1(class="degree")= arr2[j]
+                                    h2(class="wType")= arr1[i]
+                                    h2(class="rainType")= arr3[i]
+                                    - ++j
+                            h2(id="date") #{d.getMonth()+1}/#{d.getDate()}/#{d.getFullYear()}
+                        div(id="manager")
+                            h3(id="managerTitle") WeatherNow Manager
+                        img(src="images/settings.png" id="managerBtn")
+                footer 
+                    h5(id="title") © Patryk Pilichowski, WeatherNow inc.
+        script 
+            include view_component.js
+            
