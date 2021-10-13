@@ -81,6 +81,10 @@ class Manager {
             document.getElementsByClassName('wType')[i].innerText = wType;
             document.getElementsByClassName('rainType')[i].innerText = (!rainChance.length)?"Rain Chance: --":`Rain Chance: ${rainChance}%`;
         }
+        for(let i=0;i<bgDg.length;i++) {
+            let dg = Number(bgDg[i].textContent.match(/\d+/)[0]);
+            bgDg[i].style.backgroundColor = (dg<=-10)?"rgba(0, 124, 214, 0.57)":(dg<=0 && dg>-10)?"rgba(0, 124, 249, 0.21)":(dg<=10 && dg>0)?"rgba(0, 143, 9, 0.21)":(dg<=20 && dg>10)?"rgba(0, 143, 9, 0.37)":(dg<=30 && dg>20)?"rgba(253, 143, 9, 0.36)":"rgba(253, 0, 0, 0.52)";
+        }
     }
 }
 var managerClass = new Manager(); 
