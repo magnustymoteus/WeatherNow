@@ -57,7 +57,10 @@ h1 {
     font-size: 3.5vw;
 }
 .degree {
+    vertical-align: top;
+    margin-left: 1.5vw;
     width: 9vw;
+    font-size: 3vw;
     display: inline-block;
     color: white;
     border-radius: 2%;
@@ -72,6 +75,7 @@ h1 {
 }
 .part {
     font-size: 4vw;
+    margin-bottom: 1vw;
 }
 .wType {
     font-size: 2vw;
@@ -148,6 +152,17 @@ h1 {
     display: inline;
     left: 0.1vw;
     position: absolute;
+}
+.wImg[src="images/showers.png"] {
+    width: 30%;
+}
+.wImg[src="images/cloudy.png"] {
+    width: 30%;
+    margin-bottom: 1.8vw;
+}
+.wImg[src="images/sunny.png"] {
+    width: 30%;
+    margin-bottom: -0.23vw;
 }
 @-webkit-keyframes zoomin {
     0% {transform: scale(1);}
