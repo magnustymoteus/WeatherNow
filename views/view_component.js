@@ -1,17 +1,11 @@
 let weather = document.getElementById('weather');
 let bgDg = document.getElementsByClassName('degree');
+let wImgs = document.getElementsByClassName('wImg');
 let managerBtn = document.getElementById('managerBtn');
 let manager = document.getElementById('manager');
 class WeatherBlock {
     static blockAm = 0;
     static maxBlocksAllowed = 4;
-    constructor(part, dg, wType, rainType) {
-        this.part = part;
-        this.dg = dg;
-        this.wType = wType;
-        this.rainType = rainType;
-        WeatherBlock.blockAm++;
-    }
     static getExistingBlocks = () => {
         let blocks = document.getElementsByClassName('weather-table');
         let blockArr = new Array();
@@ -20,6 +14,20 @@ class WeatherBlock {
             blockArr.push(block);
         }
         return blockArr;
+    }
+    constructor(part, dg, wType, rainType) {
+        this.part = part;
+        this.dg = dg;
+        this.wType = wType;
+        this.rainType = rainType;
+        WeatherBlock.blockAm++;
+    }
+    static updatewImgs = () => {
+        for(let i=0;i<wImgs.length;i++) {
+            let wType = document.getElementsByClassName('wType');
+            let wImg = (wType[i].innerText.toLowerCase().includes("showers"))?"images/showers.png":(wType[i].innerText.toLowerCase().includes("sun"))?"images/sunny.png":"images/cloudy.png";
+            wImgs[i].setAttribute("src", wImg);
+        }
     }
 }
 class Manager {
@@ -85,6 +93,7 @@ class Manager {
             let dg = Number(bgDg[i].textContent.match(/\d+/)[0]);
             bgDg[i].style.backgroundColor = (dg<=-10)?"rgba(0, 124, 214, 0.57)":(dg<=0 && dg>-10)?"rgba(0, 124, 249, 0.21)":(dg<=10 && dg>0)?"rgba(0, 143, 9, 0.21)":(dg<=20 && dg>10)?"rgba(0, 143, 9, 0.37)":(dg<=30 && dg>20)?"rgba(253, 143, 9, 0.36)":"rgba(253, 0, 0, 0.52)";
         }
+        WeatherBlock.updatewImgs();
     }
 }
 var managerClass = new Manager(); 
@@ -93,5 +102,6 @@ for(let i=0;i<bgDg.length;i++) {
     let dg = Number(bgDg[i].textContent.match(/\d+/)[0]);
     bgDg[i].style.backgroundColor = (dg<=-10)?"rgba(0, 124, 214, 0.57)":(dg<=0 && dg>-10)?"rgba(0, 124, 249, 0.21)":(dg<=10 && dg>0)?"rgba(0, 143, 9, 0.21)":(dg<=20 && dg>10)?"rgba(0, 143, 9, 0.37)":(dg<=30 && dg>20)?"rgba(253, 143, 9, 0.36)":"rgba(253, 0, 0, 0.52)";
 }
+WeatherBlock.updatewImgs();
 managerBtn.onclick = () => managerClass.clickBtn();
 updateBtn.onclick = () => managerClass.updateBlocks();
